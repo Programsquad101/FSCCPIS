@@ -1,9 +1,9 @@
 <?php
 
-define("DATABASE_HOST", "127.0.0.1");
-define("DATABASE_USERNAME", "root");
-define("DATABASE_PASSWORD", "newpassword");
-define("DATABASE_NAME", "cpis");
+define("DATABASE_HOST", "fsccpis.com");
+define("DATABASE_USERNAME", "fscceuef_admin");
+define("DATABASE_PASSWORD", "FSCCPIS18");
+define("DATABASE_NAME", "fscceuef_admin");
 
 function escape($string){
   echo htmlspecialchars($string, ENT_QUOTES, "UTF-8");
