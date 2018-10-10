@@ -1,0 +1,72 @@
+body{
+margin: 0;
+color: #006456;
+}
+
+#wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#header{
+width: 100%;
+text-align: center;
+font-size: 130%;
+}
+
+#selection{
+width: 90%;
+margin: auto;
+text-align: center;
+}
+
+.selection-btn{
+  color: white;
+  font-size: 110%;
+  width: 80%;
+  background-color: #006456;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3%;
+  margin:5% auto 5% auto;
+}
+
+.selection-btn:first-child{
+  margin-top: 10%;
+}
+
+form{
+  width: 100%;
+  display: none;
+  border-bottom: thin solid #006456;
+  padding-bottom: 5%;
+}
+
+label{
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1%;
+  font-size: 100%;
+}
+
+.text-input{
+  width: 80%;
+  padding: 3%;
+  font-size: 110%;
+  margin-bottom: 2%;
+}
+
+.submit-btn{
+  border: none;
+  border-radius: 5px;
+  background-color: #006456;
+  border: thin solid #006456;
+  color: white;
+  width: 80%;
+  font-size: 110%;
+  padding: 3%;
+  margin-bottom: 2%;
+}
