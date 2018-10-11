@@ -6,7 +6,7 @@ require_once 'scripts/app_config.php';
 session_start();
 $student_id = $_SESSION['student_id'];
 
-$sql = "SELECT username FROM tblStudent WHERE student_id = ?;";
+$sql = "SELECT username FROM tblStudents WHERE student_id = ?;";
 $stmt = mysqli_stmt_init($con);
 if(!mysqli_stmt_prepare($stmt, $sql)){
   echo "ERROR PREPARE";
