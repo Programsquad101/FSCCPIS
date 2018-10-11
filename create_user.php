@@ -9,7 +9,7 @@
   $username = mysqli_real_escape_string($con, $username);
 
   if(isset($_POST['student-btn'])){
-    $sql = "INSERT INTO tblStudent(username,password)VALUES(?,?);";
+    $sql = "INSERT INTO tblStudents(username,password)VALUES(?,?);";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$sql)){
       echo "Error in prepare statment";
@@ -23,7 +23,7 @@
   }
 
   if(isset($_POST['faculty-btn'])){
-    $sql = "INSERT INTO tblFaculty(username,password)VALUES(?,?);";
+    $sql = "INSERT INTO tblAdvisors(username,password)VALUES(?,?);";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$sql)){
       echo "Error in prepare statment";
@@ -31,13 +31,13 @@
       mysqli_stmt_bind_param($stmt, "ss", $username, $password);
       mysqli_stmt_execute($stmt);
       session_start();
-      $_SESSION['faculty_id'] = $faculty_id;
-      header("Location:faculty.php");
+      $_SESSION['advisor_id'] = $advisor_id;
+      header("Location:advisor.php");
     }
   }
 
   if(isset($_POST['tutor-btn'])){
-    $sql = "INSERT INTO tblTutor(username,password)VALUES(?,?);";
+    $sql = "INSERT INTO tblTutors(username,password)VALUES(?,?);";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$sql)){
       echo "Error in prepare statment";

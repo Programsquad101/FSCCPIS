@@ -12,7 +12,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT username,password,student_id FROM tblStudent WHERE username=?;";
+    $sql = "SELECT username,password,student_id FROM tblStudents WHERE username=?;";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
       set_error_handler("errorHandler");
@@ -42,7 +42,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT username,password,faculty_id FROM tblFaculty WHERE username=?;";
+    $sql = "SELECT username,password,faculty_id FROM tblAdvisors WHERE username=?;";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
       set_error_handler("errorHandler");
@@ -55,7 +55,7 @@
         if($username === $data_username){
           if(password_verify($password, $data_password)){
             session_start();
-            $_SESSION['faculty_id'] = $faculty_id;
+            $_SESSION['advisor_id'] = $advisor_id;
             header("Location:faculty.php");
             exit();
           } else{
@@ -72,7 +72,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT username,password,tutor_id FROM tblTutor WHERE username=?;";
+    $sql = "SELECT username,password,tutor_id FROM tblTutors WHERE username=?;";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
       set_error_handler("errorHandler");

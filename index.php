@@ -38,7 +38,7 @@
           <button type="submit" class="submit-btn" name="student-btn">Login</button>
         </form>
 
-      <div id="faculty-btn" class="selection-btn"> Faculty </div>
+      <div id="faculty-btn" class="selection-btn"> Advisor </div>
         <form method="POST" id="faculty" action="login.php">
 
           <label for="username">Username</label>
