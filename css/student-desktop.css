@@ -1,0 +1,44 @@
+body{
+  margin: 0;
+}
+
+#content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+}
+
+#student-content{
+  width: 100%;
+  border: thin solid;
+}
+
+#advisor-content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: thin solid;
+}
+
+  #advisor-content p{
+    margin-left: 10%;
+  }
+
+#tutor-content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: thin solid;
+}
+
+
+  #tutor-content p{
+    margin-left: 10%;
+  }
