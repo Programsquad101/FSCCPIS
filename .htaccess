@@ -1,0 +1,19 @@
+ErrorDocument 404 /http://fsccpis.com/404-not-found.php
+
+# mod_rewrite starts here
+
+RewriteEngine on
+
+# does not Appy to existing directorys. Meaning if the folder exists on the server then don't change anything.
+
+# Check if it is not the same as one of the directores (!-d)
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check for file in drectory with .php extension, if its true, continue on
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+# Here we actually show the page that has the .php extension. Grabbed the entire url, then added .php at the end, but show the url without it. Dont matter if any upper cases in URl (NC). The big L makes that any new conditions later in document dont have this rule
+
+RewriteRule ^(.*)$ $1.php [NC,L]

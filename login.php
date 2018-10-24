@@ -26,7 +26,7 @@
           if(password_verify($password, $data_password)){
             session_start();
             $_SESSION['student_id'] = $student_id;
-            header("Location:student.php");
+            header("Location:student");
             exit();
           } else{
             echo "password wrong";
@@ -56,7 +56,7 @@
           if(password_verify($password, $data_password)){
             session_start();
             $_SESSION['advisor_id'] = $advisor_id;
-            header("Location:advisor.php");
+            header("Location:advisor");
             exit();
           } else{
             echo "password wrong";
@@ -86,7 +86,7 @@
           if(password_verify($password, $data_password)){
             session_start();
             $_SESSION['tutor_id'] = $tutor_id;
-            header("Location:tutor.php");
+            header("Location:tutor");
             exit();
           } else{
             echo "password wrong";

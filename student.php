@@ -6,18 +6,19 @@ require_once 'scripts/app_config.php';
 session_start();
 $student_id = $_SESSION['student_id'];
 
-$sql = "SELECT username FROM tblStudents WHERE student_id = ?;";
+$sql = "SELECT ramID,firstName,lastName,address,phone,email,lat,lng FROM tblStudents WHERE student_id = ?;";
 $stmt = mysqli_stmt_init($con);
 if(!mysqli_stmt_prepare($stmt, $sql)){
   echo "ERROR PREPARE";
 } else{
   mysqli_stmt_bind_param($stmt, "i", $student_id);
   mysqli_stmt_execute($stmt);
-  if(mysqli_stmt_bind_result($stmt, $username)){
+  if(mysqli_stmt_bind_result($stmt, $ramID, $firstName, $lastName, $address, $phone, $email,$studentLat, $studentLng)){
     mysqli_stmt_fetch($stmt);
-    echo $username;
   }
 }
+
+
 
 ?>
 
@@ -43,30 +44,84 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
 <div id="wrapper">
   <div id="header">
     <div> Cpis </div>
-    <div> Logout, <?php echo $name ?> </div>
+    <div> Logout, <?php echo escape($firstName) . ' ' . escape($lastName) ?> </div>
   </div>
 
   <div id="content">
     <div id="student-content">
       <h1> Student Information </h1>
-      <p> <b>Name:</b> James Carr </p>
-      <p> <b>Address:</b> 631 Fenworth Blvd Franklin Square</p>
-      <p> <b>Phone:</b> 773-555-2000 </p>
+      <p> <b>Name:</b> <?php echo escape($firstName) . ' ' . escape($lastName) ?> </p>
+      <p> <b>Address:</b> <?php echo escape($address) ?></p>
+      <p> <b>Phone:</b> <?php echo escape($phone) ?> </p>
     </div>
 
+    <h1> Advisors </h1>
     <div id="advisor-content">
-      <h1> Advisors </h1>
-      <p> <b>Name:</b> Sarah Lynn </p>
-      <p> <b>Address:</b> 631 Fenworth Blvd Franklin Square</p>
-      <p> <b>Email:</b> advisor@farmingdale.edu </p>
+      <?php
+      $sql = "SELECT firstName,lastName,email FROM tblAdvisors;";
+      $stmt = mysqli_stmt_init($con);
+      if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "ERROR PREPARE";
+      } else{
+        mysqli_stmt_execute($stmt);
+        if(!mysqli_stmt_bind_result($stmt, $advisor_firstName, $advisor_lastName, $advisor_email)){
+          echo "Error binding result";
+          } else{
+            $advisor_firstName = htmlspecialchars($advisor_firstName, ENT_QUOTES, 'UTF-8');
+            $advisor_lastName = htmlspecialchars($advisor_lastName, ENT_QUOTES, 'UTF-8');
+            $advisor_email = htmlspecialchars($advisor_email, ENT_QUOTES, 'UTF-8');
+            while(mysqli_stmt_fetch($stmt)){
+              echo "
+                <div class='advisors'>
+                <div> $advisor_firstName $advisor_lastName </div>
+                <div> $advisor_email </div>
+              ";
+            }
+        }
+      }
+      ?>
     </div>
+    <h1> Tutor </h1>
 
     <div id="tutor-content">
-      <h1> Tutor </h1>
-      <p> <b>Name:</b> David Lee </p>
-      <p> <b>Address:</b> 631 Fenworth Blvd Franklin Square</p>
-      <p> <b>Email:</b> tutor@farmingdale.edu </p>
-      <p> <b>Skills:</b> PHP, Pearl, BCS 250</p> 
+      <?php
+      $sql = "SELECT firstName, lastName, address, pricing, status, email, skills,
+       ( 3959 * acos( cos( radians(?) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(?) ) + sin( radians(?) ) * sin( radians( lat ) ) ) ) AS distance FROM tblTutors t
+        JOIN tblSkills s ON  t.tutor_id = s.tutor_id
+        ORDER BY distance LIMIT 0, 20;";
+      $stmt = mysqli_stmt_init($con);
+      if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "ERROR PREPARE";
+      } else{
+        mysqli_stmt_bind_param($stmt, "ddd", $studentLat, $studentLng, $studentLat);
+        mysqli_stmt_execute($stmt);
+        if(!mysqli_stmt_bind_result($stmt, $tutor_firstName, $tutor_lastName, $tutor_address, $tutor_pricing, $tutor_status, $tutor_email, $skills, $distance)){
+          echo "error, failed to bind results";
+        }else{
+        while(mysqli_stmt_fetch($stmt)){
+          $distance = number_format((float)$distance, 2, '.', '');
+          $tutor_firstName = htmlspecialchars($tutor_firstName, ENT_QUOTES, 'UTF-8');
+          $tutor_lasttName = htmlspecialchars($tutor_lastName, ENT_QUOTES, 'UTF-8');
+          $tutor_email = htmlspecialchars($tutor_email, ENT_QUOTES, 'UTF-8');
+          $tutor_address = htmlspecialchars($tutor_address, ENT_QUOTES, 'UTF-8');
+
+          echo "
+          <div class='tutors'>
+          <div> $distance Miles </div>
+          <div><b>Name:</b> $tutor_firstName $tutor_lastName</div>
+          <div><b>Address:</b> $tutor_address</div>
+          <div><b>Email:</b> $tutor_email</div>
+          <div><b>Status:</b>  $tutor_status</div>
+          <div><b>Pricing:</b>  $tutor_pricing</div>
+          <div><b>Skills:</b> $skills </div>
+          </div>
+          ";
+          }
+        }
+      }
+
+
+    ?>
     </div>
   </div>
 

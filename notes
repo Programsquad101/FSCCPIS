@@ -1,28 +1,8 @@
+list
 
-index:
-
-  login for advisor, student or tutor
-
-
-advisor
-
-student
-
-tutor
-
-survey page
-
-
-Scripts:
-
-verify-
-
-  verify the login of user
-
-signup-
-
-  signup for tutors, once signed in a user can sign up to become a tutor.
-
-database
-
-  database connection
+- tutor update all information
+- admin page to verify a tutor can become a tutor
+- .htaccess file
+- scheduling for advisors and tutors
+- designing
+- errors 
