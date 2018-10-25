@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Farmingdale CPIS</title>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+	
+</head>
+
+<body>
+
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+
+					<span class="login100-form-title">
+							Farmingdale CPIS
+					</span>
+
+
+
+				<div class="row">
+					<div  class="selection-btn"  id="student-btn">
+						<img src="https://image.flaticon.com/icons/svg/201/201818.svg"  width="50" height="50" alt="Student" title="Student">
+					</div>
+					<div class="selection-btn" id="faculty-btn">
+						<img src="https://image.flaticon.com/icons/svg/201/201565.svg"  width="50" height="50" alt="Advisor" title="Advisor">
+					</div>
+					<div class="selection-btn" id="tutor-btn">
+						<img src="https://image.flaticon.com/icons/svg/201/201584.svg"  width="50" height="50" alt="Tutor" title="Tutor">
+					</div>
+				</div>
+	
+
+
+		<form class="login100-form validate-form" method="POST" id="student" action="login.php" style="display:none">
+		
+			<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+				<input class="input100" type="text" name="username">
+				<span class="focus-input100" data-placeholder="Student Username"></span>
+			</div>
+			<div class="wrap-input100 validate-input" data-validate="Enter password">
+				<input class="input100" type="password" name="password">
+				<span class="focus-input100" data-placeholder="	Student Password"></span>
+			</div>
+			<div class="container-login100-form-btn">
+				<div class="wrap-login100-form-btn">
+					<div class="login100-form-bgbtn"></div>
+					<button type="submit" class="login100-form-btn" name="student-btn">
+						Login
+					</button>
+				</div>
+			</div>
+
+		</form>
+
+		<form class="login100-form validate-form" method="POST" id="faculty" action="login.php" style="display:none">
+		
+			<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+				<input class="input100" type="text" name="username">
+				<span class="focus-input100" data-placeholder="Faculty Username"></span>
+			</div>
+			<div class="wrap-input100 validate-input" data-validate="Enter password">
+
+				<input class="input100" type="password" name="password">
+				<span class="focus-input100" data-placeholder="	Faculty Password"></span>
+			</div>
+			<div class="container-login100-form-btn">
+				<div class="wrap-login100-form-btn">
+					<div class="login100-form-bgbtn"></div>
+					<button type="submit" class="login100-form-btn" name="student-btn">
+						Login
+					</button>
+				</div>
+			</div>
+
+		</form>
+
+		<form class="login100-form validate-form" method="POST" id="tutor" action="login.php" style="display:none">
+		
+			<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+				<input class="input100" type="text" name="username">
+				<span class="focus-input100" data-placeholder="Tutor Username"></span>
+			</div>
+			<div class="wrap-input100 validate-input" data-validate="Enter password">
+
+				<input class="input100" type="password" name="password">
+				<span class="focus-input100" data-placeholder="	Tutor Password"></span>
+			</div>
+			<div class="container-login100-form-btn">
+				<div class="wrap-login100-form-btn">
+					<div class="login100-form-bgbtn"></div>
+					<button type="submit" class="login100-form-btn" name="student-btn">
+						Login
+					</button>
+				</div>
+			</div>
+
+
+			</form>
+						
+			<div style="margin-top:30px;text-align:center" >
+					<span class="txt1">
+						Don’t have a Tutor account?
+					</span>
+		
+					<a class="txt2" href="#">
+						Sign Up
+					</a>
+			</div>	
+
+			</div>
+			
+		</div>
+	</div>
+
+
+
+
+
+
+</body>
+
+</html>
