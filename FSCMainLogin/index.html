@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Check out what is going on with the CPIS Department at Farmingdale">
+    <meta name="author" content="cpis.com">
+
+    <title>Farmingdale CPIS</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+<body>
+    <main>
+        <div class="header">
+            <h1>Farmingdale CPIS</h1>
+        </div>
+        <div class="headerContainer">
+            <div class="main1">
+                <div id="student-btn"> <img src="https://image.flaticon.com/icons/svg/201/201818.svg" width="50" height="50"
+                        alt="Student" title="Student"></div>
+                <div id="faculty-btn"> <img src="https://image.flaticon.com/icons/svg/201/201565.svg" width="50" height="50"
+                        alt="Advisor" title="Advisor"></div>
+                <div id="tutor-btn"> <img src="https://image.flaticon.com/icons/svg/201/201584.svg" width="50" height="50"
+                        alt="Tutor" title="Tutor"></div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!----------------------- Student Login-------------------->
+            <form action="create_tutor.php" id="student" method="post" action="login.php">
+                <div class="group" id="student">
+                    <input name="username" class="inputMaterial" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Student Username</label>
+                </div>
+                <div class="group">
+                    <input name="password" class="inputMaterial" type="password" id="myInput" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Student Password</label>
+                </div>
+                <button name="submit" id="btn_login" type="submit">Sign Up</button>
+            </form>
+
+            <!----------------------- Faculty Login-------------------->
+            <form action="create_tutor.php" id="faculty" method="post" action="login.php" style="display:none">
+                <div class="group" id="student">
+                    <input name="username" class="inputMaterial" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Faculty Username</label>
+                </div>
+                <div class="group">
+                    <input name="password" class="inputMaterial" type="password" id="myInput" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Faculty Password</label>
+                </div>
+                <button name="submit" id="btn_login" type="submit">Sign Up</button>
+            </form>
+
+            <!----------------------- Tutor Login-------------------->
+            <form action="create_tutor.php" id="tutor" method="post" action="login.php" style="display:none">
+                <div class="group" id="student">
+                    <input name="username" class="inputMaterial" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Tutor Username</label>
+                </div>
+                <div class="group">
+                    <input name="password" class="inputMaterial" type="password" id="myInput" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Tutor Password</label>
+                </div>
+                <button name="submit" id="btn_login" type="submit">Sign Up</button>
+            </form>
+
+
+            <div style="margin-bottom:30px;text-align:center">
+                <span>
+                    Don’t have a Tutor Account?
+                </span>
+                <a class="txt1" href="tutor_signup">
+                    Sign Up
+                </a>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+body {
+    background: rgb(247, 202, 201);
+    background: -moz-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    background: linear-gradient(135deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.container{
+	position: relative;
+	margin: auto;
+    height: auto;
+    top: 100px;
+	left: 0;
+	z-index: 200;
+	right: 0;
+	width:400px;
+	color:#666;
+	border-radius: 3px;
+	background: #FFF;
+    margin-bottom: 100px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    overflow: hidden;
+}
+.header{
+    text-align: center;
+    position: relative;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.container button{
+	background: #cfd8dc;
+	border:0;
+	color: #009688;
+	padding:10px;
+	font-size: 16px;
+    font-weight: 300;
+	width:330px;
+	margin:20px auto;
+	display:block;
+	cursor:pointer;
+    -webkit-transition: all 0.4s;
+	transition: all 0.4s;
+    border-radius: 2px;
+    margin-bottom: 40px;
+}
+
+.container button:active{
+	background: #009688;
+    color: #263238;
+}
+
+.container button:hover{
+	background: #009688;
+    color: #FFF;
+    -webkit-transition: all 0.4s;
+	transition: all 0.4s;
+}
+.group 			  { 
+    position:relative; 
+    margin-bottom: 35px; 
+    margin-left: 40px;
+  }
+.group2 			  { 
+    position:relative; 
+    margin-bottom: 100px; 
+    margin-left: 40px;
+  }
+  
+  .inputMaterial 				{
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+  }
+  
+  .inputMaterial:focus 		{ outline:none;}
+  
+  /* LABEL ======================================= */
+  
+  label 				 {
+    color:#999; 
+    font-size:14px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  /* active state */
+  .inputMaterial:focus ~ label, .inputMaterial:valid ~ label 		{
+    top:-20px;
+    font-size:14px;
+    color: #009688;
+  }
+  
+  /* BOTTOM BARS ================================= */
+  .bar 	{ position:relative; display:block; width:315px; }
+  .bar:before, .bar:after 	{
+    content:'';
+    height:2px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background: #009688; 
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%; 
+  }
+  
+  /* active state */
+  .inputMaterial:focus ~ .bar:before, .inputMaterial:focus ~ .bar:after {
+    width:50%;
+  }
+  
+  
+  /* active state */
+  .inputMaterial:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+  
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  
+/* ------------------------ */
+
+select{
+    margin-left: 50px;
+    margin-top: 11px;
+    border:0px;
+    outline:0px;
+}
+
+.show-password {
+    width: 100%;
+  }
+  
+  .show-password label {
+    position: absolute;
+    left: -9999px;
+    text-indent: -9999px;
+  }
+  
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .password + .unmask {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    text-indent: -9999px;
+    width: 25px;
+    height: 25px;
+    background: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+  }
+  
+  .password + .unmask:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 17px;
+    height: 17px;
+    background: #e3e3e3;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .password[type="text"] + .unmask:after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 13px;
+    height: 13px;
+    background: #aaa;
+    z-index: 2;
+    border-radius: 50%;
+  }
+  
+  /* ----------- */
+#div1, #div2{   
+width: 125px;
+float:left;
+position: relative;
+top: -30px;
+left:290px;
+}
+
+.main1 {
+float: left;
+}
+
+#div3{   
+    float:left;
+    position: relative;
+}
+#div4{   
+    float:left;
+    position: relative;
+    left:60px;
+    top: 10px;
+}
+
+
+/* ------ */
